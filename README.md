@@ -1,60 +1,55 @@
 # Bookstore Sales Analytics | SQL + Python + Power BI
 
-**Completed:** May 29, 2026 | **Updated:** Apr 2026  
-**Tools:** SQL, Power BI, DAX, Python - Built-in functions only
+**Completed:** July 12, 2026 | **Last Updated:** July 12, 2026  
+**Tools:** SQL, Power BI, DAX, Python - Built-in functions only  
+**Domain:** Publishing & Retail Analytics | As a former Author, I analyzed what drives book sales
 
 ### Business Problem
-Identify revenue drivers and inventory optimization opportunities for a bookstore with 1,000+ sales records. Find which Category, City, and Book caused the most sales drops using LAG logic.
+Identify revenue drivers and inventory optimization opportunities for a bookstore with 1,500+ sales records. 
+Goal: Find which Category, City, and Book caused the most revenue change and detect MoM sales drops using LAG logic.
 
 ### My Approach - 2 Versions
 
-#### Version 1: SQL + Power BI | May 2026
-1. **SQL ETL:** 6 queries using JOINs, aggregations, and date functions to clean data and calculate KPIs
-2. **Power BI:** Interactive dashboard with DAX measures for revenue tracking
-3. **Files:** `SQL_All_Queries_28May.sql`, `Bookstore_Dashboard_May2026.pbix`
+#### Version 1: SQL + Power BI | July 2026
+1. **SQL ETL:** 7 queries using JOINs, aggregations, window functions, and date functions to clean data and calculate KPIs
+2. **Power BI:** Interactive dashboard with DAX measures for revenue tracking and MoM % change
+3. **Key Files:** `SQL_All_Queries_28May.sql`, `Bookstore_Dashboard_May2026.pbix`
 
 #### Version 2: Pure Python ETL | Apr 2026 - No Pandas, No SQL
-**Why this version?** Built to understand LAG logic and JOINs at the fundamental level using `split(',')` and dicts.
-
-**Method:** 
+**Why this version?** Built to understand JOIN and ETL logic at the fundamental level using `split(',')` and dicts.
+**Method:**
 - Loaded 3 CSVs: sales.csv, customers.csv, books.csv
-- Used Python dictionaries for JOINs 
-- Manual LAG logic: compared current day revenue vs previous day
-- Flagged drops without any libraries
+- Used Python dictionaries for JOINs
+- Manual aggregation logic to find top genres and books
+- Generated 2 visualizations using Matplotlib
 
-**Files:** See `/Python_No_Pandas/` folder
+### Key Insights & Results
+1. **Top Revenue Driver:** Self-Help genre drives 37% of total revenue. `Atomic Habits` is #1 title at ~3.1K revenue
+2. **Anomaly Detected:** Using SQL `LAG()` window function, flagged `Atomic Habits` with a **65.35% MoM sales drop** from Feb to Mar 2024
+3. **Trend Analysis:** Overall revenue peaked in Jan 2024, dropped 25% by April, with slight recovery in June
+4. **DAX Impact:** Built `MoM % Revenue Change = 4.96%` measure to track performance in Power BI
 
-### Key Insights
+### Technical Skills Demonstrated
+- **SQL:** JOINs, GROUP BY, CTEs, Window Functions `LAG()`, Date functions, Case statements
+- **DAX:** Calculated Measures, MoM calculations, KPIs
+- **Python:** ETL from scratch, data cleaning, Matplotlib for visualization
+- **Power BI:** Data modeling, Interactive dashboard, Card visuals, Bar/Donut/Line charts
 
-**From Power BI/SQL version:**
-- Self-Help drives 37.5% revenue despite History 50% avg discount
-- Jan 2024 peak ₹2,397 - recommend Dec stock-up
-- Kolkata VIP city - 4 of the top 5 customers, including Ananya Das ₹1,948
-- Flagged 75% MoM decline in July 2024 for investigation
+### Project Files
+| File | Description |
+| --- | --- |
+| `SQL_All_Queries_28May.sql` | All 7 SQL queries including LAG analysis |
+| `sales_drops_report.csv` | Output of Q7: Books with >20% sales drop |
+| `bookstore_*.py` | Python scripts for ETL and analysis |
+| `matplotlib_analysis.ipynb` | Jupyter notebook with 2 charts |
+| `monthly_trend.png` | Line chart: Monthly revenue trend |
+| `top10_books.png` | Bar chart: Top 10 books by revenue |
+| `Bookstore_Dashboard_May2026.pbix` | Interactive Power BI Dashboard |
+| `Ankita_Kundu_Data_Analyst.pdf` | Resume |
 
-**From Pure Python version:**
-- **6 total sales drops** detected across all dates using LAG comparison
-- **The Alchemist: 3 drops** - most volatile product
-- **Kolkata: 9 drops** - most volatile city  
-- **Fiction category:** most drops overall
+### Learnings
+This was my first portfolio project. I started with basic SQL and joins, and progressed to advanced window functions and DAX. 
+Building both SQL and Python versions helped me understand data transformation at every level.
 
-### Files & Folder Structure
-├── SQL_All_Queries_28May.sql           - ETL queries with business insights
-├── Bookstore_Dashboard_May2026.pbix    - Interactive Power BI source
-├── Bookstore_Dashboard_May2026.png     - Dashboard screenshot
-└── Python_No_Pandas/                   - Pure Python implementation
-    ├── bookstore_sales.py              - Category drop analysis + LAG
-    ├── bookstore_customers.py          - City drop analysis + JOIN
-    ├── bookstore_products.py           - Book drop analysis + JOIN
-    ├── sales_drops_report.csv          - Category results
-    ├── sales_drops_by_city.csv         - City results
-    └── sales_drops_by_book.csv         - Book results
-
-### Skills Demonstrated
-**SQL:** JOINs, Window Functions/LAG, Aggregations, Date functions  
-**Python:** File I/O, Dicts for JOINs, List sorting, String parsing, Manual ETL  
-**Power BI:** DAX measures, Dashboard design, Data modeling  
-**Business:** Identified revenue drivers, flagged volatility, and gave stock recommendations
-
-### Contact
-ankitakundu1190@gmail.com    
+### Next Steps
+Project 1 of 3. Coming up: HR Attrition Analysis + Food Delivery Analysis
