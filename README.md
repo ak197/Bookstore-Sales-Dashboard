@@ -1,6 +1,6 @@
 # Bookstore Sales Analytics | SQL + Python + Power BI
 
-**Completed:** July 12, 2026 | **Last Updated:** July 12, 2026  
+**Completed:** May 28, 2026 | **Last Updated:** July 12, 2026  
 **Tools:** SQL, Power BI, DAX, Python - Built-in functions only  
 **Domain:** Publishing & Retail Analytics | As a former Author, I analyzed what drives book sales
 
